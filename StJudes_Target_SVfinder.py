@@ -1,5 +1,6 @@
 import csv
 import statistics
+import sys
 
 #This program was designed VERY SPECIFICALLY to pull out SV breakpoints from the input .tsv file
 #It is unlikely to be broadly applicable
@@ -13,7 +14,7 @@ import statistics
 #               A full list of breakpoints belonging to unannotated cases (.csv)
 
 def main():
-    with open('StJudes_Target/TARGET_BALL_WGS_SV.tsv') as inputfile, open ('DESeq_Metadata_expanded.csv') as metafile, open('StJudes_Target/StJudes_Target_SVmetadata.txt', 'w+') as svmetadata, open ('StJudes_Target/StJudes_Target_SVBreakpoints.csv', 'w+') as breakpoints, open('StJudes_Target/StJudes_Target_UNCLASSIFIED_breakpoints.csv', 'w+') as unclasssified:
+    with open(sys.argv[1]) as inputfile, open (sys.argv[2]) as metafile, open('StJudes_Target/StJudes_Target_SVmetadata.txt', 'w+') as svmetadata, open ('StJudes_Target/StJudes_Target_SVBreakpoints.csv', 'w+') as breakpoints, open('StJudes_Target/StJudes_Target_UNCLASSIFIED_breakpoints.csv', 'w+') as unclasssified:
         
         #First we prep our I/O files
         inreader = csv.reader(inputfile, delimiter = '\t')
