@@ -169,6 +169,7 @@ def main():
         parser.add_argument('-m', '--mutations', default = 0, type = int, help = 'Option to find mutations near unique RSSs, enter 1 to run')
         parser.add_argument('-g', '--genome', help = 'Genome in fasta format')
         parser.add_argument('-rand', '--randomiser', default = (0,100,300,1000), type = list, help = 'number of basepairs downstream (+ve number) or upstream (-ve number) to take a so called random site')
+        parser.add_argument("-b", "--bedfolder", type=str, required=True, help="Folder containing .bed files for analysis")
         return parser.parse_args()
 
     args = get_args()
@@ -183,7 +184,7 @@ def main():
 
         #the inputs here are .bed files in cwd due to our processing pipeline for available data
         # other input types should be easily accessed with minimal modifications.
-        for bed in sorted(glob.glob("*.bed")):
+        for bed in sorted(glob.glob(f"{bedfolder}/*.bed")):
             global total_count
             total_count = 0
             global rand_count
