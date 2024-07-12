@@ -1,4 +1,48 @@
 # Structural-Variants
+
+##System Requirements
+No known issues with any operating system
+
+The user must have Python3, along with the modules:
+Selenium
+psutil
+
+Additionally, Geckodriver must be available in the PATH, along with Firefox Web browser.
+
+##StructuralVariationShell
+
+The easiest way to run these programs is by using the provided bash Shell script. This should be run as follows:
+
+bash StructuralVariationShell.sh <Datasource> <dataset> <metadata csv> <TARGET data matrix> <bedfolder> <genome .fasta>
+
+These arguments refer to:
+-The data source of interest (either BCCA, CGI or StJudes
+-The dataset of interest, being either the TARGET Structural Variants summary (for CGI and StJudes) or a series of by-patient variants .summary files for BCCA
+-Metadata relating to patient characteristics
+-The TARGET data matrix containing clinical characteristics (not provided)
+-Patient .BED sequence files
+-A genome in .fasta format
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+##SVfinder programs
+
+###Overview
+This code identifies and characterises structural variants from TARGET data, and provides a whole-dataset level summary of DNA damage within the dataset
+
+###Usage
+
+python ×_TargetFinder.py <dataset> <metadata> <target matrix>
+
+###Output
+Numerous files within the OUTPUT folder, each containing information on a subset of SV type/patient type cross sections
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
 ## FullSV_ByPatient.py
 
 ### Overview
@@ -8,11 +52,11 @@ This code processes structural variant (SV) data from multiple sources and organ
 ### Prerequisites
 
 Python 3.x 
-CSV files from different sources: BCCA, CGI and St Jude SV TARGET datasets
+CSV files from different sources: BCCA, CGI or St Jude SV TARGET datasets
 
 ### Usage
 
-python3 FullSVs_ByPatient.py
+python FullSVs_ByPatient.py <datasource> <dataset of interest> <Structural Variant file from SVfinder>
 
 ### Output
 
@@ -32,15 +76,15 @@ SVs_near_RSSs.py is a script designed to analyze breakpoints of structural varia
 
 To run this script, you need the following dependencies: Python 3.x 
 
-Standard Libraries: argparse, csv, glob, os, subprocess, time, urllib.request, zipfile, psutil 
+External Libraries: selenium
 
-External Libraries: selenium Reference genome file in fasta format and corresponding index file are needed
+ Reference genome file in fasta format and corresponding index file are needed
 
 ### Usage
 
 Place the input data (bed format) into the working folder and run the following command
 
-python SV_near_RSS.py -g genome.fasta
+python SV_near_RSS.py -g genome.fasta -b <folder containing BED files>
 
 ### Output
 
@@ -53,7 +97,7 @@ Folder “Unique_RSS_Site_File” contains a csv file that includes breakpoints 
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-## SVs_near_RSSs_bypatient.py
+## Finalise_SVs.py
 
 ### Overview
 
@@ -61,7 +105,7 @@ This program analyzes Structural Variants (SVs) and their proximity to Recombina
 
 ### Requirements
 
-This script requires three folders:
+This script requires three folders (produced by previous programs):
 
 FullSVs_ByPatient: Contains CSV files for each patient, listing SVs with the format:
 
@@ -73,7 +117,7 @@ Random_unique_sites: Contains CSV files with random distances from RSSs for back
 
 ### Usage
 
-python3 SVs_near_RSSs_bypatient.py
+python Finalise_SVs.py <Datasource>
 
 ### Output
 
