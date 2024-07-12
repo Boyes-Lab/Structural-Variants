@@ -1,6 +1,6 @@
 # Structural-Variants
 
-##System Requirements
+## System Requirements
 No known issues with any operating system
 
 The user must have Python3, along with the modules:
@@ -9,7 +9,7 @@ psutil
 
 Additionally, Geckodriver must be available in the PATH, along with Firefox Web browser.
 
-##StructuralVariationShell
+## StructuralVariationShell
 
 The easiest way to run these programs is by using the provided bash Shell script. This should be run as follows:
 
@@ -27,16 +27,16 @@ These arguments refer to:
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-##SVfinder programs
+## SVfinder programs
 
-###Overview
+### Overview
 This code identifies and characterises structural variants from TARGET data, and provides a whole-dataset level summary of DNA damage within the dataset
 
-###Usage
+### Usage
 
 python ×_TargetFinder.py <dataset> <metadata> <target matrix>
 
-###Output
+### Output
 Numerous files within the OUTPUT folder, each containing information on a subset of SV type/patient type cross sections
 
 ### License
