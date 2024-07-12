@@ -1,5 +1,6 @@
 import statistics
 import csv
+import sys
 
 #This program was designed VERY SPECIFICALLY to pull out SV breakpoints from the input .csv file
 #It is unlikely to be broadly applicable
@@ -14,7 +15,7 @@ import csv
 #               A full list of breakpoints belonging to unannotated cases (.csv)
 
 def main():
-    with open('CGI_Target/CGI_SV_Breakpoints.csv') as inputfile, open ('DESeq_Metadata_expanded.csv') as metafile, open('CGI_Target/CGI_Target_SVmetadata.txt', 'w+') as svmetadata, open ('CGI_Target/CGI_Target_SVBreakpoints.csv', 'w+') as breakpoints, open('CGI_Target/CGI_Target_UNCLASSIFIED_breakpoints.csv', 'w+') as unclasssified:
+    with open(sys.argv[1]) as inputfile, open (sys.argv[2]) as metafile, open('CGI_Target/CGI_Target_SVmetadata.txt', 'w+') as svmetadata, open ('CGI_Target/CGI_Target_SVBreakpoints.csv', 'w+') as breakpoints, open('CGI_Target/CGI_Target_UNCLASSIFIED_breakpoints.csv', 'w+') as unclasssified:
         
         #First we prep our I/O files
 
@@ -84,7 +85,7 @@ def main():
             
             #Checks RNAseq sample numbers against data matrix to get diagnosis/relapse info
             #SVs from diagnosis/relapse are counted for Metadata file
-            with open('TARGET_Data_Matrix.csv') as matrix:
+            with open(sys.argv[3]) as matrix:
                 matrixreader = csv.reader(matrix)
 
                 for line in matrixreader:
