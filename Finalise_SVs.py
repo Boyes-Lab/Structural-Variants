@@ -1,5 +1,6 @@
 import glob
 import csv
+import sys
 
 #This program utilieses the output of two other programs:
 #   'FullSVs_BYPatient' - A VERY non=portable program which extracts SVs from BCCA, CGI and StJude LSV TARGET datasets
@@ -64,7 +65,7 @@ def main():
         
     #defines sources of data. Of course, if data isn't from multiple sources this list can be reduced to one entry,
     #or removed completely along with 'for datasource' loops.
-    sources = ['BCCA', 'CGI', 'StJude']
+    sources = [sys.argv[1],]
 
     #defines default lengths used in testing for background RSS levels in the SVs_near_RSSs program. If other lengths are
     #used, alter this list.
