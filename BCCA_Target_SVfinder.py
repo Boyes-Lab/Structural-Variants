@@ -1,6 +1,7 @@
 import statistics
 import csv
 import glob
+import sys
 
 #This program was designed VERY SPECIFICALLY to pull out SV breakpoints from input .tsv files - BCCA separates these
 #BY PATIENT, and also into large vs short SVs
@@ -51,9 +52,9 @@ def main():
             breaksbypatientrelapse = {}
 
             #In this case, input files are opened later to combine all breaks from seperate files into one.
-            for patienttsv in sorted(glob.glob(f'BCCA_Target/BCCA_{length}_Somatic/*.tsv')):
+            for patienttsv in sorted(glob.glob(f'{sys.argv[1]}*.tsv')):
 
-                with open(patienttsv) as inputfile, open ('DESeq_Metadata_expanded.csv') as metafile: 
+                with open(patienttsv) as inputfile, open (sys.argv[2]) as metafile: 
                     #Now we prep the input files
                     inreader = csv.reader(inputfile, delimiter = '\t')
                     next(inreader)
