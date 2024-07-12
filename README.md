@@ -39,6 +39,7 @@ External Libraries: selenium Reference genome file in fasta format and correspon
 ### Usage
 
 Place the input data (bed format) into the working folder and run the following command
+
 python SV_near_RSS.py -g genome.fasta
 
 ### Output
