@@ -13,14 +13,20 @@ Additionally, Geckodriver must be available in the PATH, along with Firefox Web 
 
 The easiest way to run these programs is by using the provided bash Shell script. This should be run as follows:
 
-bash StructuralVariationShell.sh <Datasource> <dataset> <metadata csv> <TARGET data matrix> <bedfolder> <genome .fasta>
+bash StructuralVariationShell.sh (Datasource) (dataset) (metadata csv) (TARGET data matrix) (bedfolder) (genome .fasta)
 
 These arguments refer to:
+
 -The data source of interest (either BCCA, CGI or StJudes
+
 -The dataset of interest, being either the TARGET Structural Variants summary (for CGI and StJudes) or a series of by-patient variants .summary files for BCCA
+
 -Metadata relating to patient characteristics
+
 -The TARGET data matrix containing clinical characteristics (not provided)
+
 -Patient .BED sequence files
+
 -A genome in .fasta format
 
 ### License
