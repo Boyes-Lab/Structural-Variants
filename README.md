@@ -76,7 +76,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ### Overview
 
-SVs_near_RSSs.py is a script designed to analyze breakpoints of structural variants (SVs) near recombination signal sequences (RSSs) in the genome. This script creates an analysis window spanning 50 bp either side of each breakpoint. The presence of an RSS within the window is then analysed using the DNAGrep algorithm, via RSSsite.
+SVs_near_RSSs.py is a script designed to analyze breakpoints of structural variants (SVs) near recombination signal sequences (RSSs) in the genome. This script creates an analysis window spanning 50 bp either side of each breakpoint. The presence of an RSS within the window is then analysed using the DNAGrep algorithm, via RSSsite (Merelli, I. et al, 2010).
 
 ### Requirements
 
@@ -134,3 +134,9 @@ A summary CSV file for each data source, containing metrics for each patient and
 ### License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+
+### References
+
+Merelli, I. et al. RSSsite: a reference database and prediction tool for the identification of
+697 cryptic Recombination Signal Sequences in human and murine genomes. Nucleic Acids Res
+698 38, W262-267, doi:10.1093/nar/gkq391 (2010).
