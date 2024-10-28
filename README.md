@@ -140,3 +140,30 @@ This project is licensed under the MIT License. See the LICENSE file for details
 Merelli, I. et al. RSSsite: a reference database and prediction tool for the identification of
 697 cryptic Recombination Signal Sequences in human and murine genomes. Nucleic Acids Res
 698 38, W262-267, doi:10.1093/nar/gkq391 (2010).
+
+## Interrogate_SVType.py
+
+### Overview
+
+Interrogate_SVType.py is a script designed to identify the nature of structural variants, using the output of Finalise_SVs as the input. By analysing each end of a given site of DNA damage, we can identify whether each variant stems from a deletion, insertion, translocations or complex insertions.
+
+Furthermore, this program assesses whether each instance of DNA damage could have been caused by ESC reintegration (insertion of a TCR/Ig sequence between two RSS sites) or but CUT&RUN (other DNA damage occurring between two RSS sites).
+
+### Requirements
+
+This script requires two folders (produced by previous programs):
+Individual_Patient_SVs_ByRSSstatus :  - A folder containing individual CSV files for each patient with SVs categorized by their proximity to RSSs.
+Unique_RSS_Site_files: Contains CSV files listing unique RSS-adjacent sequences.
+
+### Usage
+
+python Interrogate_SVType.py
+
+### Output
+
+The output of the script is a folder, FullSVs_DNADamageExpanded, which contains information on each type of DNA damage within the sample. In particular, the FullSVs_DNADamageExpanded/SplitByRSSProximity/Summaries/Cut&RunAssessment files contain a summary of ALL DNA damage in each patient file, segregated by the likely source of that damage.
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
